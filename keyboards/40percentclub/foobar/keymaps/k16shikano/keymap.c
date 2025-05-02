@@ -69,7 +69,7 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
         case LT(2,KC_B):
             return 0;
         case LSFT_T(KC_X):
-            return 0;
+            return QUICK_TAP_TERM;
         case LT(1,KC_N):
             return 0;
         case LCTL_T(KC_S):
@@ -82,13 +82,13 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LCTL_T(KC_A):
-            return false;
+            return true;
         case LCTL_T(KC_Z):
             return false;
         case LCTL_T(KC_S):
             return false;
         case LSFT_T(KC_X):
-            return false;
+            return true;
         case LSFT_T(KC_G):
             return false;
         case LALT_T(KC_C):
