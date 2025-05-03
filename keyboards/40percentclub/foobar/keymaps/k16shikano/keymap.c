@@ -63,17 +63,17 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LCTL_T(KC_A):
-            return 0;
+            return 50;
         case LT(3,KC_ENT):
-            return 0;
+            return 50;
         case LT(2,KC_B):
-            return 0;
+            return 50;
         case LSFT_T(KC_X):
             return QUICK_TAP_TERM;
         case LT(1,KC_N):
-            return 0;
+            return 50;
         case LCTL_T(KC_S):
-            return 0;
+            return 50;
         default:
             return QUICK_TAP_TERM;
     }
