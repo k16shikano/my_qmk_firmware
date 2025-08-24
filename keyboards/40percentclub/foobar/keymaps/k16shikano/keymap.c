@@ -44,7 +44,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case LCTL_T(KC_S):
             return false;
         case LSFT_T(KC_X):
-            return false;
+            return true;
         case LSFT_T(KC_G):
             return false;
         case LALT_T(KC_C):
@@ -52,28 +52,28 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case LT(4,KC_V):
             return false;
         case LT(2,KC_B):
-            return false;
+            return true;
         case LT(1,KC_N):
             return false;
         default:
-            return true;
+            return false;
     }
 }
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LCTL_T(KC_A):
-            return 50;
+            return 25;
         case LT(3,KC_ENT):
-            return 50;
+            return 75;
         case LT(2,KC_B):
-            return 50;
+            return 75;
         case LSFT_T(KC_X):
             return QUICK_TAP_TERM;
         case LT(1,KC_N):
-            return 50;
+            return 5;
         case LCTL_T(KC_S):
-            return 50;
+            return 75;
         default:
             return QUICK_TAP_TERM;
     }
@@ -82,7 +82,7 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LCTL_T(KC_A):
-            return true;
+            return false;
         case LCTL_T(KC_Z):
             return false;
         case LCTL_T(KC_S):
@@ -96,7 +96,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case LT(4,KC_V):
             return false;
         case LT(2,KC_B):
-            return false;
+            return true;
         case LT(1,KC_N):
             return false;
         default:
@@ -214,7 +214,7 @@ tap_dance_action_t tap_dance_actions[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split(
     TD(TD_Q_ESC), KC_W,         KC_E,         KC_R,         KC_T,        KC_Y,        KC_U,    KC_I,     KC_O,          KC_BSPC,
-    LCTL_T(KC_A), LCTL_T(KC_S), KC_D,         LT(4,KC_F),   LSFT_T(KC_G),KC_H,        KC_J,    KC_K,     KC_L,          LT(5,KC_P),
+    LCTL_T(KC_A), LCTL_T(KC_S), KC_D,         LT(4,KC_F),      LT(5,KC_G),  KC_H,        KC_J,    KC_K,     KC_L,          LT(5,KC_P),
     LCTL_T(KC_Z), LSFT_T(KC_X), LALT_T(KC_C), LT(4,KC_V),   LT(2,KC_B),  LT(1,KC_N),  KC_M,    TD(TD_CD),LSFT_T(KC_DOT),LT(3,KC_ENT)),
 
   [1] = LAYOUT_split(
@@ -239,6 +239,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [5] = LAYOUT_split(
     KC_F1,        KC_F2,        KC_F3,        KC_F4,       KC_F5,        KC_F6,       KC_F7,   KC_F8,   KC_F9,          KC_F10,
-    KC_F11,       KC_F12,       KC_TRNS,      KC_TRNS,     KC_TRNS,      KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS,        LT(5,KC_NO),
+    KC_F11,       KC_F12,       KC_TRNS,      QK_BOOT,     LT(5,KC_NO),  KC_TRNS,     KC_TRNS, KC_TRNS, QK_BOOT,        LT(5,KC_NO),
     KC_LCTL,      KC_LSFT,      KC_LALT,      KC_TRNS,     KC_DEL,       QK_BOOT,     KC_TRNS, KC_TRNS, KC_TRNS,        KC_TRNS)
 };
